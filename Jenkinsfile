@@ -24,7 +24,7 @@ pipeline {
             }
             post{
                 always{
-               junit 'test-results/junit.xml' 
+               junit '**/target/surefire-reports/*.xml'
                 }
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             }
             post{
                 always{
-                    junit 'jest-results/junit.xml'
+                     junit '**/target/failsafe-reports/*.xml'
                 }
             }
         }
