@@ -45,6 +45,17 @@ stages {
 
         }
 
+        stage('Approval')
+        {
+            steps{
+                sh'''
+                timeout(3) {
+                     input 'Do you want to deploy '
+                    }   
+                '''
+            }
+        }
+
         
         stage('Deploy')
         {
