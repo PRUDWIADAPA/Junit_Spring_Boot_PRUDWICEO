@@ -17,6 +17,12 @@ pipeline {
 
         stage('Unit Testing')
         {
+            agent{
+                docker{
+                    image 'maven:3.9.8-eclipse-temurin-21'
+                    reuseNode true
+                }
+            }
             steps{
                 sh 'mvn test'
             }
