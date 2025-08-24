@@ -48,11 +48,10 @@ stages {
         stage('Approval')
         {
             steps{
-                sh'''
-                timeout((time: 3, unit: 'MINUTES') {
-                    input message: "Do you want to deploy?"
-                    }   
-                '''
+                    timeout(3) {
+                         input 'Do you want to deploy '
+                    }
+               
             }
         }
 
