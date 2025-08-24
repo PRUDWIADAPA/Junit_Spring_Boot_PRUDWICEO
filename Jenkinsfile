@@ -30,7 +30,7 @@ stages {
         }
         stage('Integration Testing')
         {
-           
+
             steps{
                 echo 'Integration Testing'
                 sh 'mvn verify -DskipUnitTests'
@@ -55,7 +55,7 @@ stages {
             }
         }
 
-        
+
         stage('Deploy')
         {
             steps{
