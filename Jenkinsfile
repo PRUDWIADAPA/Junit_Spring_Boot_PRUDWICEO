@@ -14,8 +14,9 @@ stages {
                 sh 'mvn clean package -DskipTests'
             }
         }
-
-        stage('Unit Testing')
+        stage('Testing'){
+            parallel{
+            stage('Unit Testing')
         {
             
             steps{
@@ -40,6 +41,11 @@ stages {
                 }
             }
         }
+            }
+
+        }
+
+        
         stage('Deploy')
         {
             steps{
