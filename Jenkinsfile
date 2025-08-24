@@ -1,5 +1,5 @@
 pipeline {
-    
+
     agent{
             docker{
                         image 'maven:3.9.8-eclipse-temurin-21'
@@ -24,7 +24,7 @@ pipeline {
             }
             post{
                 always{
-               junit '**/target/surefire-reports/*.xml' 
+               junit 'test-results/junit.xml' 
                 }
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             }
             post{
                 always{
-                    junit '**/target/failsafe-reports/*.xml'
+                    junit 'jest-results/junit.xml'
                 }
             }
         }
