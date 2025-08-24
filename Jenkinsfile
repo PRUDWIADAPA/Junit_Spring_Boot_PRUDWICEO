@@ -42,7 +42,7 @@ pipeline {
             }
             steps{
                 echo 'Integration Testing'
-                sh 'mvn verify'
+                sh 'mvn verify -DskipUnitTests'
             }
             post{
                 always{
