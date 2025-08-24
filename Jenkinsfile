@@ -49,8 +49,8 @@ stages {
         {
             steps{
                 sh'''
-                timeout(3) {
-                     input "Do you want to deploy"
+                timeout((time: 3, unit: 'MINUTES') {
+                    input message: "Do you want to deploy?"
                     }   
                 '''
             }
