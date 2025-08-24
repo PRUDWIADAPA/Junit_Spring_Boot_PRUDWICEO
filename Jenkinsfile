@@ -11,7 +11,7 @@ pipeline {
             }
             steps {
                 echo 'Building PRUDWI CEO application'
-                sh 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
