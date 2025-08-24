@@ -50,7 +50,7 @@ stages {
             steps{
                 sh'''
                 timeout(3) {
-                     input 'Do you want to deploy '
+                     input 'Do you want to deploy'
                     }   
                 '''
             }
