@@ -1,13 +1,12 @@
 pipeline {
+agent{
+    docker{
+            image 'maven:3.9.8-eclipse-temurin-21'
+            reuseNode true
+            }
+        }
 
-    agent{
-            docker{
-                        image 'maven:3.9.8-eclipse-temurin-21'
-                        reuseNode true
-                    }
-                }
-
-    stages {
+stages {
         stage('Building') {
             
             steps {
@@ -39,6 +38,12 @@ pipeline {
                 always{
                      junit '**/target/failsafe-reports/*.xml'
                 }
+            }
+        }
+        stage('Deploy')
+        {
+            steps{
+                echo 'deploying'
             }
         }
     }
