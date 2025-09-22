@@ -14,15 +14,19 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
-
-        stage('Unit Testing'){
-            echo 'Performing the Unit Test'
-            steps{
-                sh 'mvn test'
-            }
-            post{
-                always{
-               junit '**/target/surefire-reports/*.xml'
+        stage('Testing') {
+            parallel{
+                stage('Unit Testing')
+                {
+                    steps{
+                        echo 'PERFORMING UNIT TESTS PRUDWI CEO'
+                        sh 'mvn test'
+                    }
+                    post{
+                        always{
+                            junit '**/target/surefire-reports/*.xml'
+                        }
+                    }
                 }
             }
         }
