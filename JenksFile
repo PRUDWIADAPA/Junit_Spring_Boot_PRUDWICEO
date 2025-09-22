@@ -32,7 +32,7 @@ pipeline {
                 {
                     steps{
                         echo 'Performin Integration Testing'
-                        sh 'mvn verify DskipUnitTests'
+                        sh 'mvn verify -DskipUnitTests'
                     }
                     post{
                         always{
