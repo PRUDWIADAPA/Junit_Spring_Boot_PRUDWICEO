@@ -28,6 +28,18 @@ pipeline {
                         }
                     }
                 }
+                stage('Integration Test')
+                {
+                    steps{
+                        echo 'Performin Integration Testing'
+                        sh 'mvn verify DskipUnitTests'
+                    }
+                    post{
+                        always{
+                            junit '**/target/failsafe-reports/*.xml'
+                        }
+                    }
+                }
             }
         }
     }
