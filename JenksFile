@@ -1,14 +1,15 @@
 pipeline {
-agent {
-            docker{
-                image 'maven:3.9.8-eclipse-temurin-21'
-                reuseNode true
+    agent{
+        docker{
+            image:'maven:3.9.8-eclipse-temurin-21'
+            reuseNode: true
         }
-}
+    }
+
     stages {
-        stage('Building') {
+        stage('Build') {
             steps {
-                echo 'PRUDWI CEO BUILDING APPLICATION'
+                echo 'BUILDING THE PROJECT PRUDWI CEO'
 
                 sh 'mvn clean package -DskipTests'
             }
