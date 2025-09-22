@@ -1,9 +1,10 @@
 pipeline {
-    agent {
-        docker{
-            image 'maven:3.9.8-eclipse-temurin-21'
+agent {
+            docker{
+                image 'maven:3.9.8-eclipse-temurin-21'
+                reuseNode true
         }
-    }
+}
     stages {
         stage('Building') {
             steps {
